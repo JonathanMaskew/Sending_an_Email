@@ -22,12 +22,15 @@ public class SendEmail {
         });
 
         Message message = new MimeMessage(session);
-        message.setText("plz work!");
+        message.setText("**EMERGENCY ALERT**\nSusan Todd did NOT check in today. Please check in with her.");
 
-        Address addressTo = new InternetAddress("jmaskew1.compsci@gmail.com");
+        Address addressTo = new InternetAddress("3176060246@vtext.com");
         message.setRecipient(Message.RecipientType.TO, addressTo);
 
-        Transport.send(message);
+        Address addressFrom = new InternetAddress("jmaskew1.compsci@gmail.com");
+        message.setFrom(addressFrom);
 
+        Transport.send(message);
+        System.out.println("Message sent successfully.");
     }
 }
